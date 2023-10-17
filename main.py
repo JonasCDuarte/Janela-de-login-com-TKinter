@@ -3,83 +3,70 @@ from tkinter import *
 
 class Aplicacao:
     def __init__(self, master = None):
+        #Criando função de fontes previamente configurada
         self.fonte = ('Arial', '8')
-        self.txtFonte = ('Verdana', '8')
+        self.txtfonte = ('Verdana', '8')
 
-        self.c1 = Frame(master)
-        self.c1['padx'] = 10
-        self.c1.pack()
+        #Primeiro bloco da página
+        self.b1 = Frame(master)
+        self.b1['padx'] = 10
+        self.b1.pack()
 
-        self.c2 = Frame(master)
-        self.c2['padx'] = 20
-        self.c2['pady'] = 5
-        self.c2.pack()
+        #Segundo bloco da página
+        self.b2 = Frame(master)
+        self.b2['padx'] = 20
+        self.b2['pady'] = 5
+        self.b2.pack()
 
-        self.c3 = Frame(master)
-        self.c3['padx'] = 20
-        self.c3['pady'] = 5
-        self.c3.pack()
+        # Terceiro bloco da página
+        self.b3 = Frame(master)
+        self.b3['padx'] = 20
+        self.b3['pady'] = 5
+        self.b3.pack()
 
-        self.c4 = Frame(master)
-        self.c4['padx'] = 20
-        self.c4['pady'] = 5
-        self.c4.pack()
+        # Quarto bloco da página
+        self.b4 = Frame(master)
+        self.b4['padx'] = 20
+        self.b4['pady'] = 5
+        self.b4.pack()
 
-        self.c5 = Frame(master)
-        self.c5['padx'] = 20
-        self.c5['pady'] = 5
-        self.c5.pack()
+        #Quinto bloco da página
+        self.b5 = Frame(master)
+        self.b5['padx'] = 15
+        self.b5.pack()
 
-        self.c6 = Frame(master)
-        self.c6['padx'] = 20
-        self.c6['pady'] = 5
-        self.c6.pack()
-
-        self.titulo = Label(self.c1, text='Informe os dados', font=self.fonte)
+        # Texto do cabeçario da página
+        self.titulo = Label(self.b1, font= self.fonte, text= 'Informe os dados')
         self.titulo.pack()
 
-        self.lblNome = Label(self.c2, text='Nome:', font=self.fonte, width=10)
+        # Texto de indicação para a caixa de digitação nome usuário
+        self.lblNome = Label(self.b2, font= self.fonte, text= 'Nome:', width= 10)
         self.lblNome.pack(side = LEFT)
 
-        self.txtNome = Entry(self.c2, font=self.txtFonte, width= 20)
+        # Caixa de texto para receber o nome do usuário
+        self.txtNome = Entry(self.b2, font= self.txtfonte, width= 20)
         self.txtNome.pack(side = LEFT)
 
-        self.lblEmail = Label(self.c3, text='E-mail:', font=self.fonte, width=10)
-        self.lblEmail.pack(side = LEFT)
-
-        self.txtEmail = Entry(self.c3, font=self.txtFonte, width=20)
-        self.txtEmail.pack(side = LEFT)
-
-        self.lblSenha = Label(self.c4, text='Senha:', font=self.fonte, width=10)
+        # Texto de indicação para a caixa de digitação senha
+        self.lblSenha = Label(self.b3, font= self.fonte, text= 'Senha:', width= 10)
         self.lblSenha.pack(side = LEFT)
 
-        self.txtSenha = Entry(self.c4, font=self.txtFonte, width=20)
-        self.txtSenha['show'] = "*"
+        # Caixa de texto para receber a senha do usuário
+        self.txtSenha = Entry(self.b3, font= self.txtfonte, width=20)
         self.txtSenha.pack(side = LEFT)
 
-        self.botaoInserir = Button(self.c5, text='Inserir', font=self.fonte, width=5)
-        self.botaoInserir['command'] = self.inserirUsuarioo
-        self.botaoInserir.pack()
+        # Criando o botão para validar os dados
+        self.botao = Button(self.b4, font=self.fonte, width= 8, text= 'Verificar')
+        #self.botao['command'] =
+        self.botao.pack()
 
-        self.resposta = Label(self.c6, font=self.txtFonte, width=25)
+        # Caixa de texto retornando uma mensagem se os dados estão ou não no banco de dados
+        self.resposta = Label(self.b5, font= self.fonte, width= 10)
         self.resposta.pack()
-
-    def inserirUsuarioo(self):
-        usu = Usuario()
-
-        usu.nome = self.txtNome.get()
-        usu.email = self.txtEmail.get()
-        usu.senha = self.txtSenha.get()
-
-        self.resposta['text'] = usu.inserirUsuario()
-
-        self.txtNome.delete(0, END)
-        self.txtEmail.delete(0, END)
-        self.txtSenha.delete(0, END)
-
-
 
 
 root = Tk()
 Aplicacao(root)
 root.mainloop()
+
+

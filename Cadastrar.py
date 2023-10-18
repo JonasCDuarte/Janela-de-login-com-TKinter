@@ -1,5 +1,6 @@
 from Usuario import Usuario
 from tkinter import *
+from Banco import Banco
 
 class Cadastrar_novo:
     def __init__(self, master = None):
@@ -66,7 +67,7 @@ class Cadastrar_novo:
 
     def inserirUsuarioo(self):
         usu = Usuario()
-
+        usu
         usu.nome = self.txtNome.get()
         usu.email = self.txtEmail.get()
         usu.senha = self.txtSenha.get()
@@ -80,6 +81,5 @@ class Cadastrar_novo:
 
 
 
-root = Tk()
-Cadastrar_novo(root)
-root.mainloop()
+
+
